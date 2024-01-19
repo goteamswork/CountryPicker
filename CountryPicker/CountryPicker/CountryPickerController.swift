@@ -51,19 +51,9 @@ open class CountryPickerController: UIViewController {
     internal lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.hidesNavigationBarDuringPresentation = true
-        searchController.searchBar.barStyle = .default
+        searchController.searchBar.barStyle = .black
         searchController.searchBar.sizeToFit()
         searchController.searchBar.delegate = self
-        if #available(iOS 13.0, *) {
-            searchController.searchBar.searchTextField.textColor = .white
-            searchController.searchBar.searchTextField.tintColor = .white
-        } else {
-            if let searchField = searchController.searchBar.subviews.first(where: { $0 is UITextField }) as? UITextField {
-                // Set the search text color
-                searchField.textColor = .white
-                searchField.tintColor = .white
-            }
-        }
         return searchController
     }()
     
