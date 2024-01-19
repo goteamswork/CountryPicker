@@ -56,10 +56,12 @@ open class CountryPickerController: UIViewController {
         searchController.searchBar.delegate = self
         if #available(iOS 13.0, *) {
             searchController.searchBar.searchTextField.textColor = .white
+            searchController.searchBar.searchTextField.tintColor = .white
         } else {
             if let searchField = searchController.searchBar.subviews.first(where: { $0 is UITextField }) as? UITextField {
                 // Set the search text color
                 searchField.textColor = .white
+                searchField.tintColor = .white
             }
         }
         return searchController
